@@ -1,0 +1,16 @@
+[Unit]
+Description=Playerok Tools Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/playerok-bot
+ExecStart=/opt/playerok-bot/venv/bin/python /opt/playerok-bot/bot.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
